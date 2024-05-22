@@ -96,7 +96,7 @@ class Post {
         DB::getInstance()->query("SELECT * FROM post ORDER BY id DESC LIMIT 1");
 
         $res = DB::getInstance()->results();
-        return DB::getInstance()->results()[0];
+        return isset($res[0]) ? $res[0] : null;
     }
 
     public static function fetch_journal_posts($user_id) {
